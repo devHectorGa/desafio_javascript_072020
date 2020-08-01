@@ -18,7 +18,9 @@ const Header = ({ sections }) => (
     </LogoContainer>
     <OptionsContainer>
       {sections.map((directory) => (
-        <OptionLink to={`${directory.linkUrl}`}>{directory.title}</OptionLink>
+        <OptionLink key={directory.id} to={`${directory.linkUrl}`}>
+          {directory.title}
+        </OptionLink>
       ))}
     </OptionsContainer>
   </HeaderContainer>

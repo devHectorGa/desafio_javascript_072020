@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
   height: 70px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
   position: absolute;
@@ -13,6 +13,7 @@ export const HeaderContainer = styled.header`
   background-color: rgba(255, 255, 255, 0.8);
 
   @media screen and (max-width: 800px) {
+    justify-content: space-between;
     height: 60px;
     padding: 10px;
     /* margin-bottom: 20px; */
