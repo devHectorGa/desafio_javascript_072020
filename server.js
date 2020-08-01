@@ -23,4 +23,4 @@ app.listen(port, (error) => {
   console.log('Server running on port ', port);
 });
 
-app.post('/api/', (req, res) => {});
+app.post('/api/', (req, res) => res.send('Hola'));

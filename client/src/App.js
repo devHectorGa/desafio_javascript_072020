@@ -1,16 +1,29 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-const App = () => {
+import { selectDirectorySections } from './redux/directory/directory.selectors';
+
+const App = ({ sections }) => {
   return (
     <Fragment>
       <Switch>
-        <Route exact path="/" render={() => <h1>Hello World</h1>} />
-        <Route exact path="/login" render={() => <h1>Login Page</h1>} />
-        <Route exact path="/signIn" render={() => <h1>Sign In Page</h1>} />
+        {sections.map((directory) => (
+          <Route
+            exact
+            key={directory.id}
+            path={`${directory.linkUrl}`}
+            render={directory.Component}
+          />
+        ))}
       </Switch>
     </Fragment>
   );
 };
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections,
+});
+
+export default connect(mapStateToProps)(App);
