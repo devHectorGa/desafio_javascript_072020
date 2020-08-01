@@ -1,3 +1,10 @@
 import React from 'react';
 
-export default () => <h1>HomePage</h1>;
+import { HomePageContainer } from './home.styles';
+
+export default () => (
+  <HomePageContainer>
+    <h1>Simple Chat</h1>
+    <p>Using NODE.JS, React.JS and MONGODB</p>
+  </HomePageContainer>
+);

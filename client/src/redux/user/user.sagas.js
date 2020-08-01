@@ -1,14 +1,14 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
 
-import UserActionsTypes from './user.types';
-import {
-  signInSuccess,
-  signInFailure,
-  signOutSuccess,
-  signOutFailure,
-  signUpSuccess,
-  signUpFailure,
-} from './user.actions';
+// import UserActionsTypes from './user.types';
+// import {
+//   signInSuccess,
+//   signInFailure,
+//   signOutSuccess,
+//   signOutFailure,
+//   signUpSuccess,
+//   signUpFailure,
+// } from './user.actions';
 
 export function* signInWithEmail({ payload: { email, password } }) {}
 

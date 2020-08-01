@@ -11,19 +11,21 @@ const INITIAL_STATE = {
       id: 1,
       linkUrl: '/',
       Component: HomePage,
+      hidden: true,
     },
     {
-      title: 'Login',
+      title: 'Class',
       id: 2,
-      linkUrl: '/login',
-      Component: LoginPage,
-    },
-    {
-      title: 'Home Chat',
-      id: 3,
       linkUrl: '/app',
       private: true,
       Component: AppPage,
+    },
+    {
+      title: 'Profile',
+      id: 3,
+      linkUrl: '/profile',
+      private: true,
+      Component: ProfilePage,
     },
     {
       title: 'Register',
@@ -32,11 +34,10 @@ const INITIAL_STATE = {
       Component: RegisterPage,
     },
     {
-      title: 'profile',
+      title: 'Login',
       id: 5,
-      linkUrl: '/profile',
-      private: true,
-      Componen: ProfilePage,
+      linkUrl: '/login',
+      Component: LoginPage,
     },
   ],
 };

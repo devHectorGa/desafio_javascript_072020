@@ -6,3 +6,8 @@ export const selectDirectorySections = createSelector(
   [selectDirectory],
   (directory) => directory.sections
 );
+
+export const selectDirectorySectionsToNav = createSelector(
+  [selectDirectory],
+  (directory) => directory.sections.filter((directory) => !directory.hidden)
+);
