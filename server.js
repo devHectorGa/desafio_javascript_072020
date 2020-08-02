@@ -1,10 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-let randomColor = require('randomcolor');
-const uuid = require('uuid');
 const db = require('./models');
 const dbConfig = require('./config/db.config');
+const socketIo = require('socket.io');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -13,12 +12,11 @@ const port = process.env.PORT || 5000;
 const Role = db.role;
 
 const corsOptions = {
-  origin: `http://localhost:8081`,
+  origin: `http://localhost:5000`,
 };
 
 app.use(cors(corsOptions));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ extended: true }));
 
 const rut = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.rttv4.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
@@ -50,10 +48,16 @@ app.get('/', (req, res) => {
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
-app.listen(port, (error) => {
+const expressServer = app.listen(port, (error) => {
   if (error) throw error;
   console.log('Server running on port ', port);
 });
+
+const io = socketIo(expressServer);
+
+const Chat = require('./routes/chat.routes');
+
+Chat(app, io);
 
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
