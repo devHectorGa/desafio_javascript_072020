@@ -10,7 +10,6 @@ export const ChatContainer = styled.div`
   background-size: cover;
   text-align: center;
   overflow: auto;
-  grid-area: chat;
   & > * {
     display: block;
     margin: 0;

@@ -2,10 +2,11 @@ import React, { Fragment } from 'react';
 
 import ChatMessages from '../chatMessages/chatMessages.component';
 import ChatSubmit from '../chatSubmit/chatSubmit.component';
+import { ChatContainer } from './chat.styles';
 
 export default () => (
-  <Fragment>
+  <ChatContainer>
     <ChatMessages />
     <ChatSubmit />
-  </Fragment>
+  </ChatContainer>
 );

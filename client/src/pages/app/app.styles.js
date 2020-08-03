@@ -6,6 +6,11 @@ export const AppContainer = styled.main`
   height: 100vh;
   display: grid;
   grid-template-areas: 'video' 'chat';
+
+  @media screen and (min-width: 800px) {
+    grid-template-columns: 75% 1fr;
+    grid-template-areas: 'video chat' 'video chat';
+  }
 `;
 
 export const VideoContainer = styled.section`
