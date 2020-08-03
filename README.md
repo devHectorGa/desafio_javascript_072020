@@ -13,3 +13,13 @@
   or
   $ cd client/ | npm install
   ```
+
+- **.env** file have this structure:
+  ```
+  // AUTH SECTION
+  AUTH_SECRET=AUTH_SECRET
+  // DB SECTION
+  DB_USER=DB_SERVER
+  DB_PASSWORD=DB_PASSWORD
+  DB_NAME=DB_NAME
+  ```

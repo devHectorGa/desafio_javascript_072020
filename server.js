@@ -12,7 +12,10 @@ const port = process.env.PORT || 5000;
 const Role = db.role;
 
 const corsOptions = {
-  origin: `http://localhost:5000`,
+  origin:
+    process.env.NODE_ENV !== `production`
+      ? `http://localhost:3000`
+      : `https://simple-chat-devhectorga.herokuapp.com/`,
 };
 
 app.use(cors(corsOptions));
