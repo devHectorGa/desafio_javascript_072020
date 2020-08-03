@@ -31,7 +31,11 @@ export function* signInWithUsername({ payload: { username, password } }) {
   try {
     const res = yield call(fetch, `${url}/api/auth/signin`, requestOptions);
     const data = yield res.json();
-    yield put(signInSuccess(data));
+    if (res.status === 200) {
+      yield put(signInSuccess(data));
+    } else {
+      yield put(signInFailure(data.message));
+    }
   } catch (error) {
     yield put(signInFailure(error));
   }
