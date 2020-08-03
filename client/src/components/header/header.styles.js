@@ -47,3 +47,16 @@ export const OptionLink = styled(Link)`
   padding: 10px 5px;
   cursor: pointer;
 `;
+
+export const ButtonLogout = styled.button`
+  border: none;
+  background-color: #555;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+
+  &:hover {
+    background-color: #ccc;
+    color: #333;
+  }
+`;

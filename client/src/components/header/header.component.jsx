@@ -6,12 +6,14 @@ import {
   LogoContainer,
   OptionsContainer,
   OptionLink,
+  ButtonLogout,
 } from './header.styles';
 import { ReactComponent as Logo } from '../../assets/Logo.svg';
-
 import { selectDirectorySectionsToNav } from '../../redux/directory/directory.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { signOut } from '../../redux/user/user.actions';
 
-const Header = ({ sections }) => (
+const Header = ({ sections, currentUser, signOut }) => (
   <HeaderContainer>
     <LogoContainer to="/">
       <Logo />
@@ -22,12 +24,20 @@ const Header = ({ sections }) => (
           {directory.title}
         </OptionLink>
       ))}
+      {currentUser ? (
+        <ButtonLogout onClick={() => signOut()}>Logout</ButtonLogout>
+      ) : null}
     </OptionsContainer>
   </HeaderContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
   sections: selectDirectorySectionsToNav,
+  currentUser: selectCurrentUser,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOut()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
