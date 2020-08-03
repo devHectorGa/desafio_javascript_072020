@@ -17,7 +17,7 @@ export function* signInWithUsername({ payload: { username, password } }) {
   const url =
     process.env.NODE_ENV !== 'production'
       ? `http://localhost:5000`
-      : `https://simple-chat-devhectorga.herokuapp.com/`;
+      : `https://simple-chat-devhectorga.herokuapp.com`;
   const raw = JSON.stringify({
     username,
     password,
